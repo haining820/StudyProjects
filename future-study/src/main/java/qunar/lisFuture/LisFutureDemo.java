@@ -1,35 +1,39 @@
-package qunar.p1.day22;
+package qunar.lisFuture;
 /**
  * Created with IntelliJ IDEA
  * Description:
  * User: hn.yu
  * Date: 2022-07-22
- * Time: 11:19
+ * Time: 17:39
  */
 
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
+import org.junit.Test;
 import qunar.Task;
 
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * @ClassName CompleteTest
+ * @ClassName LisFutureDemo
  * @Description TODO
  * @User hn.yu
- * @Date 2022-07-22 11:19
+ * @Date 2022-07-22 17:39
  */
-public class CompleteTest {
+public class LisFutureDemo {
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        System.out.println("3->"+Thread.currentThread().getName());
+
+    @Test
+    public void lisFuture() throws ExecutionException, InterruptedException {
         ListeningExecutorService pool = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(5));
         ListenableFuture<String> lf = pool.submit(new Task());
-        CompletableFuture<String> cf = FutureUtil.convert(lf);
-        System.out.println(cf.get());
+        System.out.println(lf.get());
+        lf.addListener(() -> {
+            System.out.println("finish lf");
+        }, Executors.newFixedThreadPool(5));
     }
 
 }

@@ -13,7 +13,9 @@ import com.google.common.util.concurrent.SettableFuture;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * @ClassName FutureUtils
@@ -24,7 +26,16 @@ import java.util.concurrent.Executors;
 public class FutureUtil {
 
     public static <T> CompletableFuture<T> convert(ListenableFuture<T> lf) {
-        return convert(lf, Executors.newSingleThreadExecutor());
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        return convert(lf, Executors.newSingleThreadExecutor(new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread t = new Thread(r);
+                t.setDaemon(true);
+                t.setName("CompletableFuture");
+                return t;
+            }
+        }));
     }
 
     public static <T> CompletableFuture<T> convert(ListenableFuture<T> lf, Executor executor) {
@@ -37,11 +48,14 @@ public class FutureUtil {
             try {
                 value = lf.get();
                 System.out.println("666");
+                System.out.println(Thread.currentThread().isDaemon());
+                System.out.println("1->"+Thread.currentThread().getName());
                 cf.complete(value);
             } catch (InterruptedException | ExecutionException e) {
                 cf.completeExceptionally(e);
             }
         }, executor);
+        System.out.println("2->"+Thread.currentThread().getName());
         return cf;
     }
 

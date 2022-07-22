@@ -1,4 +1,4 @@
-package qunar.p1.day22;
+package qunar;
 /**
  * Created with IntelliJ IDEA
  * Description:
@@ -20,6 +20,8 @@ public class Task implements Callable<String> {
 
     @Override
     public String call() throws Exception {
+        System.out.println("Task->"+Thread.currentThread().getName());
+
         TimeUnit.SECONDS.sleep(1);
 //        int a = 1 / 0;    // 异常
         return "task done";
