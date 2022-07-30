@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+<!--    &lt;!&ndash; 加载dbconfig.properties属性文件 &ndash;&gt;-->
+<!--    <context:property-placeholder location="classpath:dbconfig.properties" />-->
+
+<!--    &lt;!&ndash; 配置数据源 &ndash;&gt;-->
+<!--    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+<!--        <property name="driverClassName" value="${driver}" />-->
+<!--        <property name="url" value="${url}" />-->
+<!--        <property name="username" value="${username}" />-->
+<!--        <property name="password" value="${password}" />-->
+<!--    </bean>-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url"
+                  value="jdbc:mysql://120.48.11.138:8200/springboot_student?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="Qwer1234!"/>
+    </bean>
+
+    <!-- mybatis中的sqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <property name="mapperLocations" value="classpath:mappers/StudentMapper.xml"/>
+    </bean>
+
+    <!-- 获取mapper代理对象，为了可以获取到mapper -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <property name="basePackage" value="com.qunar.mapper"></property>
+    </bean>
+
+    <!--配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--配置transactionTemplate,Spring为了简化事务管理的代码而提供的类 -->
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="transactionManager" />
+    </bean>
+
+    <bean id="studentServiceImpl" class="com.qunar.service.impl.StudentServiceImpl">
+        <!-- 注入transactionTemplate模板-->
+        <property name="transactionTemplate" ref="transactionTemplate" />
+        <!-- 注入sqlSessionFactory-->
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+
+</beans>
+
