@@ -2,15 +2,16 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<!--configuration核心配置文件-->
 <configuration>
 
 
+    <!--设置别名，在使用类时只需使用类名小写即可-->
     <typeAliases>
-        <package name="com.qunar"/>
+        <package name="com.qunar.pojo"/>
     </typeAliases>
-<!--    <mappers>-->
-<!--        <mapper resource="mappers/StudentMapper.xml"/>-->
-<!--    </mappers>-->
+
+    <mappers>
+        <mapper resource="mappers/StudentMapper.xml"/>
+    </mappers>
 
 </configuration>

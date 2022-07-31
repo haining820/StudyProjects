@@ -2,20 +2,21 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--configuration核心配置文件-->
+
+<!--绑定StudentMapper接口-->
 <mapper namespace="com.qunar.mapper.StudentMapper">
 
 
-    <select id="selectStudent" resultType="com.qunar.pojo.Student">
-        select * from springboot_student.student;
+    <select id="selectStudent" resultType="student">
+        select * from tran.student;
     </select>
 
-    <insert id="addStudent" parameterType="com.qunar.pojo.Student">
-        insert into springboot_student.student(name,age) values (#{name},#{age});
+    <insert id="addStudent" parameterType="student">
+        insert into tran.student(name, age) values (#{name}, #{age});
     </insert>
 
     <delete id="deleteStudent">
-        delete from springboot_student.student where id = #{id};
+        delete from tran.student were id = #{id};
     </delete>
 
 
