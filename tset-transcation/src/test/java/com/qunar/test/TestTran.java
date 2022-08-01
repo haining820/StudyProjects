@@ -1,6 +1,6 @@
 package com.qunar.test;
 
-import com.qunar.pojo.Student;
+import com.qunar.service.TeacherService;
 import com.qunar.service.impl.StudentServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -17,20 +17,34 @@ public class TestTran {
 
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-    StudentServiceImpl service = (StudentServiceImpl) applicationContext.getBean("studentServiceImpl");
+    StudentServiceImpl studentService = (StudentServiceImpl) applicationContext.getBean("studentServiceImpl");
+
+    TeacherService teacherService = (TeacherService) applicationContext.getBean("teacherServiceImpl");
 
     @Test
-    public void testT1() {
-        service.testTranWithoutResult();
+    public void testTran1() {
+        studentService.testTran();
     }
 
     @Test
-    public void testT2() {
-        service.testTranSetRollback();
+    public void testTran2() {
+        studentService.testTranWithoutResult();
     }
 
     @Test
-    public void testT3() {
-        service.testTranWithResult();
+    public void testTran3() {
+        studentService.testTranSetRollback();
     }
+
+    @Test
+    public void testTran4() {
+        studentService.testTranWithResult();
+    }
+
+    @Test
+    public void testAopTran() {
+        teacherService.testAopTran();
+    }
+
+
 }

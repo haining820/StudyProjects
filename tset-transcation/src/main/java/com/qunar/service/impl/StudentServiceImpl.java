@@ -39,17 +39,30 @@ public class StudentServiceImpl implements StudentService {
     @Resource(name = "sqlSessionFactory")
     private SqlSessionFactory mySqlSessionFactory;
 
-    /**
-     * 在这里重写的doInTransactionWithoutResult方法中的add和delete被组合在一起作为一组事务，是一个整体；
-     * 先增加后删除，如果删除失败了，会回滚，之前的增加也会无效。
-     */
     @Override
     public void selectStudent() {
 
     }
 
     /**
+     * 不添加事务控制，后面的delete失败了但是前边的add依然可以成功
+     */
+    public void testTran() {
+        SqlSession sqlSession = mySqlSessionFactory.openSession();
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        // 获取当前时间，作为学生姓名，增加学生，测试事务
+        LOGGER.info("test4: add->" + mapper.addStudent(new Student(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), 88)));
+        // 在StudentMapper.xml中的删除语句中where故意写成were，删除一定会失败，会报异常
+        LOGGER.info("test4: delete->" + mapper.deleteStudent(500));
+        List<Student> list = mapper.selectStudent();
+        LOGGER.info(list.toString());
+    }
+
+
+    /**
      * 测试普通的无返回值的事务
+     * 在这里重写的doInTransactionWithoutResult方法中的add和delete被组合在一起作为一组事务，是一个整体；
+     * 先增加后删除，如果删除失败了，会回滚，之前的增加也会无效。
      */
     public void testTranWithoutResult() {
         SqlSession sqlSession = mySqlSessionFactory.openSession();
@@ -110,4 +123,6 @@ public class StudentServiceImpl implements StudentService {
             LOGGER.error("test3: transaction failed, rollback.");
         }
     }
+
+
 }

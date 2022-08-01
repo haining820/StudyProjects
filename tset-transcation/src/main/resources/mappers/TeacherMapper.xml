@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--绑定TeacherMapper接口-->
+<mapper namespace="com.qunar.mapper.TeacherMapper">
+
+
+    <select id="selectTeacher" resultType="teacher">
+        select * from tran.teacher;
+    </select>
+
+    <insert id="addTeacher" parameterType="teacher">
+        insert into tran.teacher(name,age,content) values (#{name}, #{age},#{content});
+    </insert>
+
+    <delete id="deleteTeacher">
+        delete from tran.teacher whre id = #{id};
+    </delete>
+
+
+</mapper>

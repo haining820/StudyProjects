@@ -1,7 +1,7 @@
 package com.qunar.pojo;
 /**
  * Created with IntelliJ IDEA
- * Description: 学生实体类
+ * Description: 学生实体类，测试编程式事务
  * User: hn.yu
  * Date: 2022-07-29
  * Time: 10:22
