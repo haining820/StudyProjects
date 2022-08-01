@@ -15,10 +15,22 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class TestTran {
 
+    ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+    StudentServiceImpl service = (StudentServiceImpl) applicationContext.getBean("studentServiceImpl");
+
     @Test
     public void testT1() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        StudentServiceImpl service = (StudentServiceImpl) applicationContext.getBean("studentServiceImpl");
-        service.selectStudent();
+        service.testTranWithoutResult();
+    }
+
+    @Test
+    public void testT2() {
+        service.testTranSetRollback();
+    }
+
+    @Test
+    public void testT3() {
+        service.testTranWithResult();
     }
 }
