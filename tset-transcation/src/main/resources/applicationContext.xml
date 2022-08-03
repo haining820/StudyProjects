@@ -45,6 +45,10 @@
         <property name="transactionManager" ref="transactionManager" />
     </bean>
 
+    <!--使用@Transactional注解-->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+
+
     <!--结合AOP实现事务的织入，配置事务的通知，tx:事务-->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>

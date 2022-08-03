@@ -8,6 +8,7 @@ package com.qunar.mapper;
  */
 
 import com.qunar.pojo.Student;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -22,5 +23,7 @@ public interface StudentMapper {
     int addStudent(Student student);
 
     int deleteStudent(int id);
+
+    int updateStudent(@Param("id")int id, @Param("name") String name);
 
 }

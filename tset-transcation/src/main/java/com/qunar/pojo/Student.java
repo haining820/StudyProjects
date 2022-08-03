@@ -8,16 +8,26 @@ package com.qunar.pojo;
  */
 
 
-
 /**
  * @ClassName Student
  * @Description 学生实体类
  */
 
 public class Student {
+
+    private int id;
+
     private String name;
+
     private int age;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -36,6 +46,12 @@ public class Student {
     }
 
 
+    public Student(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
     public Student(String name, int age) {
         this.name = name;
         this.age = age;
@@ -47,7 +63,8 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }

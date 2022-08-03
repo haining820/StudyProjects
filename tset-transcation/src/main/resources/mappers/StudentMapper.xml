@@ -19,5 +19,11 @@
         delete from tran.student were id = #{id};
     </delete>
 
+    <update id="updateStudent" parameterType="student">
+        update tran.student
+        set name=#{name}
+        where id=#{id};
+    </update>
+
 
 </mapper>
