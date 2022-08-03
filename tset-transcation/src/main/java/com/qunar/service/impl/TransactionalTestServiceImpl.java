@@ -1,7 +1,7 @@
 package com.qunar.service.impl;
 /**
  * Created with IntelliJ IDEA
- * Description:
+ * Description: 测试事务的传播特性
  * User: hn.yu
  * Date: 2022-08-03
  * Time: 16:07
@@ -34,6 +34,11 @@ public class TransactionalTestServiceImpl implements TransactionalTestService {
 
     @Resource(name = "studentMapper")
     private StudentMapper studentMapper;
+
+    /**
+     * SUPPORTS：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。
+     * 事务的有无没有区别！
+     */
 
 
     /**

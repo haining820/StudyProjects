@@ -1,7 +1,7 @@
 package com.qunar.utils;
 /**
  * Created with IntelliJ IDEA
- * Description:
+ * Description: 获得当前系统时间，用于测试数据的更新。
  * User: hn.yu
  * Date: 2022-08-03
  * Time: 19:08

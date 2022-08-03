@@ -57,85 +57,6 @@ public class StudentServiceImpl implements StudentService {
         return i;
     }
 
-    @Override
-    @Transactional(propagation = Propagation.NEVER)
-    public void testTranNever() {
-        Student student = new Student("testTranNever->" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), 66);
-        studentMapper.addStudent(student);
-        List<Student> list = studentMapper.selectStudent();
-        LOGGER.info(list.toString());
-    }
-
-    @Override
-    @Transactional
-    public int testTranRequired(String name) {
-        Student student = new Student(name, 66);
-        int addRes = studentMapper.addStudent(student);
-        if (addRes == 1) {
-            LOGGER.info("testTranRequired: add success.");
-            throw new RuntimeException("testTranRequired: test transaction roll back");
-        }
-        return addRes;
-    }
-
-    @Override
-    @Transactional(propagation = Propagation.NESTED)
-    public int testTranNested(String name) {
-        Student student = new Student(name, 66);
-        int addRes = studentMapper.addStudent(student);
-        if (addRes == 1) {
-            LOGGER.info("testTranNested: add success.");
-            throw new RuntimeException("testTranNested: test transaction roll back");
-        }
-        return addRes;
-    }
-
-    @Override
-    @Transactional(propagation = Propagation.NESTED)
-    public int testTranNested2(String name) {
-        Student student = new Student(name, 66);
-        int addRes = studentMapper.addStudent(student);
-        LOGGER.info("testTranNested2: add success.");
-        return addRes;
-    }
-
-    @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public int testTranRequiresNew(String name) {
-        Student student = new Student(name, 66);
-        int addRes = studentMapper.addStudent(student);
-        LOGGER.info("testRequiresNew: add success.");
-        return addRes;
-    }
-
-    @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public int testTranRequiresNew2(int id, String name) {
-        return studentMapper.updateStudent(id, name);
-    }
-
-    @Override
-    @Transactional(propagation = Propagation.NOT_SUPPORTED)
-    public int testTranNotSupported(int id, String name) {
-        int i = studentMapper.updateStudent(id, name);
-        if (i == 1) {
-            throw new RuntimeException("testTranNotSupported roll back");
-        }
-        return i;
-    }
-
-    @Override
-    @Transactional(propagation = Propagation.NOT_SUPPORTED)
-    public int testTranNotSupported2(int id, String name) {
-        return studentMapper.updateStudent(id, name);
-    }
-
-    @Override
-    @Transactional(propagation = Propagation.MANDATORY)
-    public int testTranMandatory(int id, String name) {
-        return studentMapper.updateStudent(id,name);
-    }
-
     /**
      * 不添加事务控制，后面的delete失败了但是前边的add依然可以成功
      */
@@ -147,7 +68,6 @@ public class StudentServiceImpl implements StudentService {
         List<Student> list = studentMapper.selectStudent();
         LOGGER.info(list.toString());
     }
-
 
     /**
      * 测试普通的无返回值的事务
@@ -269,6 +189,90 @@ public class StudentServiceImpl implements StudentService {
     @Transactional(propagation = Propagation.NEVER)
     public void testInsertStudent() {
         insertStudent();
+    }
+
+    /**
+     * 以下为测试事务的传播特性时使用的方法，
+     * 具体调用及说明在TransactionalTestServiceImpl中
+     */
+
+    @Override
+    @Transactional(propagation = Propagation.NEVER)
+    public void testTranNever() {
+        Student student = new Student("testTranNever->" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), 66);
+        studentMapper.addStudent(student);
+        List<Student> list = studentMapper.selectStudent();
+        LOGGER.info(list.toString());
+    }
+
+    @Override
+    @Transactional
+    public int testTranRequired(String name) {
+        Student student = new Student(name, 66);
+        int addRes = studentMapper.addStudent(student);
+        if (addRes == 1) {
+            LOGGER.info("testTranRequired: add success.");
+            throw new RuntimeException("testTranRequired: test transaction roll back");
+        }
+        return addRes;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.NESTED)
+    public int testTranNested(String name) {
+        Student student = new Student(name, 66);
+        int addRes = studentMapper.addStudent(student);
+        if (addRes == 1) {
+            LOGGER.info("testTranNested: add success.");
+            throw new RuntimeException("testTranNested: test transaction roll back");
+        }
+        return addRes;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.NESTED)
+    public int testTranNested2(String name) {
+        Student student = new Student(name, 66);
+        int addRes = studentMapper.addStudent(student);
+        LOGGER.info("testTranNested2: add success.");
+        return addRes;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public int testTranRequiresNew(String name) {
+        Student student = new Student(name, 66);
+        int addRes = studentMapper.addStudent(student);
+        LOGGER.info("testRequiresNew: add success.");
+        return addRes;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public int testTranRequiresNew2(int id, String name) {
+        return studentMapper.updateStudent(id, name);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public int testTranNotSupported(int id, String name) {
+        int i = studentMapper.updateStudent(id, name);
+        if (i == 1) {
+            throw new RuntimeException("testTranNotSupported roll back");
+        }
+        return i;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public int testTranNotSupported2(int id, String name) {
+        return studentMapper.updateStudent(id, name);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.MANDATORY)
+    public int testTranMandatory(int id, String name) {
+        return studentMapper.updateStudent(id, name);
     }
 
 
