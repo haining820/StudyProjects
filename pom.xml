@@ -13,6 +13,7 @@
         <module>JUC-study</module>
         <module>springboot-study</module>
         <module>tset-transcation</module>
+        <module>dubbo-study</module>
     </modules>
 
     <properties>
