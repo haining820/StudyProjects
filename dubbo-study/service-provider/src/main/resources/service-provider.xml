@@ -23,4 +23,8 @@
     <dubbo:protocol name="dubbo" port="20881"/>
     <dubbo:service interface="com.haining820.service.UserService" ref="userServiceImpl" registry="N/A"/>
     <!--==================================================================================================================-->
+
+    <bean id="asyncServiceImpl" class="com.haining820.service.impl.AsyncServiceImpl"/>
+    <dubbo:service interface="com.haining820.service.AsyncService" ref="asyncServiceImpl" registry="N/A" timeout="20000"/>
+
 </beans>

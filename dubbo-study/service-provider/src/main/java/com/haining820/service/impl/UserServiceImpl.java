@@ -9,7 +9,7 @@ package com.haining820.service.impl;
 
 import com.haining820.pojo.User;
 import com.haining820.service.UserService;
-import com.haining820.utils.GetCurTime;
+import com.haining820.utils.MyTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +24,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(int id) {
-        return new User(id,"yhy",18,"getUserById->"+ GetCurTime.get());
+        return new User(id, "yhy", 18, "getUserById->" + MyTools.getCurTime());
     }
+
+
 }

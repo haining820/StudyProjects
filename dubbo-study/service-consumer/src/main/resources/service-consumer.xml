@@ -19,4 +19,9 @@
     <!--直连配置-->
     <dubbo:reference id="userService"  interface="com.haining820.service.UserService" url="localhost:20881" registry="N/A"/>
     <!--==================================================================================================================-->
+
+    <dubbo:reference id="asyncService" interface="com.haining820.service.AsyncService" url="localhost:20881" registry="N/A" timeout="20000">
+        <dubbo:method name="addNum" async="true"/>
+        <dubbo:method name="subNum" async="true"/>
+    </dubbo:reference>
 </beans>

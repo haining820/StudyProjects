@@ -15,6 +15,9 @@ import com.haining820.pojo.User;
  */
 public interface UserService {
 
+    /**
+     * 测试功能
+     */
     User getUserById(int id);
 
 }

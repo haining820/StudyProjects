@@ -14,10 +14,24 @@ import java.util.Date;
  * @ClassName GetCurTime
  * @Description TODO
  */
-public class GetCurTime {
+public class MyTools {
 
-    public static String get() {
+    /**
+     * 获取当前时间
+     */
+    public static String getCurTime() {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+    }
+
+    /**
+     * 睡一会
+     */
+    public static void sleepMillis(long millis){
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
