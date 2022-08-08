@@ -20,8 +20,18 @@
     <dubbo:reference id="userService"  interface="com.haining820.service.UserService" url="localhost:20881" registry="N/A"/>
     <!--==================================================================================================================-->
 
-    <dubbo:reference id="asyncService" interface="com.haining820.service.AsyncService" url="localhost:20881" registry="N/A" timeout="20000">
-        <dubbo:method name="addNum" async="true"/>
-        <dubbo:method name="subNum" async="true"/>
+
+    <dubbo:reference id="cfAsyncService" interface="com.haining820.service.CompletableFutureAsyncService" url="localhost:20881" registry="N/A" timeout="20000">
+        <dubbo:method name="sayHelloAsync" async="true"/>
     </dubbo:reference>
+
+    <dubbo:reference id="rcAsyncService" interface="com.haining820.service.RpcContextAsyncService" url="localhost:20881" registry="N/A" timeout="20000">
+        <dubbo:method name="sayHelloAsync" async="true"/>
+    </dubbo:reference>
+
+    <dubbo:reference id="acAsyncService" interface="com.haining820.service.AsyncContextAsyncService" url="localhost:20881" registry="N/A" timeout="20000"/>
+
+
+
+
 </beans>

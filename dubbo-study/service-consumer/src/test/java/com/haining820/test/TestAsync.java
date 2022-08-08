@@ -7,14 +7,18 @@ package com.haining820.test;
  * Time: 23:17
  */
 
-import com.alibaba.dubbo.rpc.RpcContext;
-import com.haining820.service.AsyncService;
+
+import com.haining820.service.AsyncContextAsyncService;
+import com.haining820.service.RpcContextAsyncService;
+import com.haining820.service.CompletableFutureAsyncService;
+import org.apache.dubbo.rpc.RpcContext;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -26,31 +30,64 @@ public class TestAsync {
 
     private static Logger LOGGER = LoggerFactory.getLogger(TestAsync.class);
 
+    /**
+     * 测试dubbo的异步实现方式：CompletableFuture
+     */
     @Test
-    public void testAddNum1() throws ExecutionException, InterruptedException, IOException {
+    public void testSayHelloCompletableFuture() throws ExecutionException, InterruptedException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("service-consumer.xml");
-        AsyncService asyncService = (AsyncService) context.getBean("asyncService");
-        long start = System.currentTimeMillis();
-        // 进行加法计算
-        asyncService.addNum(1, 1);
-        LOGGER.info("->asyncService.addNum finish");
-        Future<Object> addFuture = RpcContext.getContext().getFuture();
-        LOGGER.info("->get addFuture finish");
-        // 进行减法计算
-        asyncService.subNum(3, 2);
-        LOGGER.info("->asyncService.subNum finish");
-        Future<Object> subFuture = RpcContext.getContext().getFuture();
-        LOGGER.info("->get subFuture finish");
-        int addRes = (int) addFuture.get();
-        LOGGER.info("->get addRes");
-        int subRes = (int) subFuture.get();
-        long end = System.currentTimeMillis();
-        LOGGER.info("->get subRes");
-        LOGGER.info("addRes->" + addRes);
-        LOGGER.info("subRes->" + subRes);
-        LOGGER.info("use time->" + (end - start));
-        // 阻塞，读取一个字符（按任意键退出）
-        System.in.read();
+        CompletableFutureAsyncService service = (CompletableFutureAsyncService) context.getBean("cfAsyncService");
+        CompletableFuture<String> completableFuture = service.sayHelloAsync("cfAsyncService: hello dubbo");
+        LOGGER.info("testSayHello->" + completableFuture.get());
     }
+
+    /**
+     * 测试dubbo的异步实现方式：RpcContext
+     */
+    @Test
+    public void testSayHelloRpcContext() throws ExecutionException, InterruptedException {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("service-consumer.xml");
+        RpcContextAsyncService service = (RpcContextAsyncService) context.getBean("rcAsyncService");
+
+        service.sayHelloAsync("RpcContextDubbo");
+        CompletableFuture<String> helloFuture = RpcContext.getContext().getCompletableFuture();
+        helloFuture.whenComplete((retValue, exception) -> {
+            if (exception == null) {
+                LOGGER.info("return value: " + retValue);
+            } else {
+                exception.printStackTrace();
+            }
+        });
+
+        CompletableFuture<String> f = org.apache.dubbo.rpc.RpcContext.getContext().asyncCall(() -> service.sayHelloAsync("async call request"));
+        LOGGER.info("async call returned: " + f.get());
+
+        org.apache.dubbo.rpc.RpcContext.getContext().asyncCall(() -> {
+            service.sayHelloAsync("one way call request1");
+        });
+    }
+
+    /**
+     * 测试dubbo的异步实现方式：AsyncContext
+     */
+    @Test
+    public void testSayHelloAsyncContext() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("service-consumer.xml");
+        AsyncContextAsyncService service = (AsyncContextAsyncService) context.getBean("acAsyncService");
+
+        // 调用直接返回CompletableFuture
+        CompletableFuture<String> future = service.sayHelloAsync("async call request");
+        // 增加回调
+        future.whenComplete((v, t) -> {
+            if (t != null) {
+                t.printStackTrace();
+            } else {
+                System.out.println("Response: " + v);
+            }
+        });
+        // 早于结果输出
+        System.out.println("Executed before response return.");
+    }
+
 
 }
