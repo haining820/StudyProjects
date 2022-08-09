@@ -25,7 +25,7 @@ public class CompletableFutureAsyncServiceImpl implements CompletableFutureAsync
 
     @Override
     public CompletableFuture<String> sayHelloAsync(String name) {
-        // 直接返回一个结果是name的CompletableFuture
+        // 直接返回一个CompletableFuture
         return CompletableFuture.supplyAsync(() -> {
             LOGGER.info("async provider received: " + name);
             MyTools.sleepMillis(5000);

@@ -71,22 +71,13 @@ public class TestAsync {
      * 测试dubbo的异步实现方式：AsyncContext
      */
     @Test
-    public void testSayHelloAsyncContext() {
+    public void testSayHelloAsyncContext() throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("service-consumer.xml");
         AsyncContextAsyncService service = (AsyncContextAsyncService) context.getBean("acAsyncService");
-
-        // 调用直接返回CompletableFuture
-        CompletableFuture<String> future = service.sayHelloAsync("async call request");
-        // 增加回调
-        future.whenComplete((v, t) -> {
-            if (t != null) {
-                t.printStackTrace();
-            } else {
-                System.out.println("Response: " + v);
-            }
-        });
-        // 早于结果输出
-        System.out.println("Executed before response return.");
+        // 不用CompletableFuture也能返回执行结果
+        LOGGER.info("testSayHelloAsyncContext->" + service.sayHelloAsync("async call request"));
+        LOGGER.info("testSayHelloAsyncContext->Executed before response return.");
+        System.in.read();
     }
 
 

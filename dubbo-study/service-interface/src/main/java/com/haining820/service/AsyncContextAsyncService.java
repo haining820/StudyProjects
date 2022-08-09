@@ -12,8 +12,4 @@ import java.util.concurrent.CompletableFuture;
 public interface AsyncContextAsyncService {
 
     String sayHelloAsync(String name);
-
-    default CompletableFuture<String> sayHi(String name, boolean isAsync) {
-        return CompletableFuture.completedFuture(sayHello(name));
-    }
 }
