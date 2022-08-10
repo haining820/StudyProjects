@@ -12,26 +12,35 @@
     <!--==================================================================================================================-->
     <!--使用zookeeper作为注册中心配置-->
     <!--指定注册中心地址-->
-<!--    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>-->
+    <!--    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>-->
     <!--声明需要调用的远程服务的接口，生成远程服务代理-->
-<!--    <dubbo:reference id="userService" interface="com.haining820.service.UserService"/>-->
+    <!--    <dubbo:reference id="userService" interface="com.haining820.service.UserService"/>-->
     <!--==================================================================================================================-->
     <!--直连配置-->
-    <dubbo:reference id="userService"  interface="com.haining820.service.UserService" url="localhost:20881" registry="N/A"/>
+    <dubbo:reference id="userService" interface="com.haining820.service.UserService" url="localhost:20881"
+                     registry="N/A"/>
     <!--==================================================================================================================-->
 
+    <dubbo:reference id="normalAsyncService" interface="com.haining820.service.NormalAsyncService"
+                     url="localhost:20881" registry="N/A" timeout="20000">
+        <dubbo:method name="sayHelloAsync" async="true" />
+    </dubbo:reference>
 
-    <dubbo:reference id="cfAsyncService" interface="com.haining820.service.CompletableFutureAsyncService" url="localhost:20881" registry="N/A" timeout="20000">
+    <dubbo:reference id="cfAsyncService" interface="com.haining820.service.CompletableFutureAsyncService"
+                     url="localhost:20881" registry="N/A" timeout="20000">
         <dubbo:method name="sayHelloAsync" async="true"/>
     </dubbo:reference>
 
-    <dubbo:reference id="rcAsyncService" interface="com.haining820.service.RpcContextAsyncService" url="localhost:20881" registry="N/A" timeout="20000">
+    <dubbo:reference id="defaultAsyncService" interface="com.haining820.service.DefaultAsyncService"
+                     url="localhost:20881" registry="N/A" timeout="20000"/>
+
+    <dubbo:reference id="acAsyncService" interface="com.haining820.service.AsyncContextAsyncService"
+                     url="localhost:20881" registry="N/A" timeout="20000"/>
+
+    <dubbo:reference id="rcAsyncService" interface="com.haining820.service.RpcContextAsyncService"
+                     url="localhost:20881" registry="N/A" timeout="20000">
         <dubbo:method name="sayHelloAsync" async="true"/>
     </dubbo:reference>
-
-    <dubbo:reference id="acAsyncService" interface="com.haining820.service.AsyncContextAsyncService" url="localhost:20881" registry="N/A" timeout="20000"/>
-
-
 
 
 </beans>

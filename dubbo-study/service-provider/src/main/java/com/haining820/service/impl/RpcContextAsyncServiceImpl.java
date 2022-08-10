@@ -14,11 +14,11 @@ import org.slf4j.LoggerFactory;
 
 public class RpcContextAsyncServiceImpl implements RpcContextAsyncService {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(CompletableFutureAsyncServiceImpl.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(RpcContextAsyncServiceImpl.class);
 
 
     /**
-     * 测试dubbo的异步实现方式：RpcContext（2.6）
+     * 测试dubbo的异步实现方式：RpcContext
      */
     @Override
     public String sayHelloAsync(String name) {

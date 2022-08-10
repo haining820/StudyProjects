@@ -4,7 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * Created with IntelliJ IDEA
- * Description: 测试dubbo的异步实现方式：CompletableFuture（2.7）
+ * Description: 测试dubbo的异步实现方式：CompletableFuture
  * User: hn.yu
  * Date: 2022-08-08
  * Time: 22:43

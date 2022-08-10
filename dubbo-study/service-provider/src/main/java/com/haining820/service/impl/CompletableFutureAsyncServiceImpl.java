@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 public class CompletableFutureAsyncServiceImpl implements CompletableFutureAsyncService {
 
     /**
-     * 测试dubbo的异步实现方式：CompletableFuture（2.7）
+     * 测试dubbo的异步实现方式：CompletableFuture
      */
 
     private static Logger LOGGER = LoggerFactory.getLogger(CompletableFutureAsyncServiceImpl.class);

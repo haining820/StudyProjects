@@ -11,24 +11,38 @@
     <!--==================================================================================================================-->
     <!--使用zookeeper作为注册中心配置-->
     <!--指定注册中心的位置（两种写法）-->
-<!--    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>-->
+    <!--    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>-->
     <!--<dubbo:registry protocol="zookeeper" address="127.0.0.1P:2181"/>-->
     <!--指定通信规则（通信协议、通信端口）-->
-<!--    <dubbo:protocol name="dubbo" port="20080"/>-->
+    <!--    <dubbo:protocol name="dubbo" port="20080"/>-->
     <!--暴露的服务：userService-->
     <!--ref：指向服务的真正实现对象userServiceImpl-->
-<!--    <dubbo:service interface="com.haining820.service.UserService" ref="userServiceImpl"/>-->
+    <!--    <dubbo:service interface="com.haining820.service.UserService" ref="userServiceImpl"/>-->
     <!--==================================================================================================================-->
     <!--直连配置-->
     <dubbo:protocol name="dubbo" port="20881"/>
     <dubbo:service interface="com.haining820.service.UserService" ref="userServiceImpl" registry="N/A"/>
     <!--==================================================================================================================-->
-    <bean id="cfAsyncService" class="com.haining820.service.impl.CompletableFutureAsyncServiceImpl"/>
-    <dubbo:service interface="com.haining820.service.CompletableFutureAsyncService" ref="cfAsyncService" registry="N/A" timeout="20000"/>
 
-    <bean id="rcAsyncService" class="com.haining820.service.impl.RpcContextAsyncServiceImpl"/>
-    <dubbo:service interface="com.haining820.service.RpcContextAsyncService" ref="rcAsyncService" registry="N/A" timeout="20000"/>
+    <bean id="normalAsyncService" class="com.haining820.service.impl.NormalAsyncServiceImpl"/>
+    <dubbo:service interface="com.haining820.service.NormalAsyncService"
+                   ref="normalAsyncService" registry="N/A" timeout="20000"/>
+
+    <bean id="cfAsyncService" class="com.haining820.service.impl.CompletableFutureAsyncServiceImpl"/>
+    <dubbo:service interface="com.haining820.service.CompletableFutureAsyncService"
+                   ref="cfAsyncService" registry="N/A" timeout="20000"/>
+
+    <bean id="defaultAsyncService" class="com.haining820.service.impl.DefaultAsyncServiceImpl"/>
+    <dubbo:service interface="com.haining820.service.DefaultAsyncService"
+                   ref="defaultAsyncService" registry="N/A" timeout="20000"/>
 
     <bean id="acAsyncService" class="com.haining820.service.impl.AsyncContextAsyncServiceImpl"/>
-    <dubbo:service interface="com.haining820.service.AsyncContextAsyncService" ref="acAsyncService" registry="N/A" timeout="20000"/>
+    <dubbo:service interface="com.haining820.service.AsyncContextAsyncService"
+                   ref="acAsyncService" registry="N/A" timeout="20000"/>
+
+    <bean id="rcAsyncService" class="com.haining820.service.impl.RpcContextAsyncServiceImpl"/>
+    <dubbo:service interface="com.haining820.service.RpcContextAsyncService"
+                   ref="rcAsyncService" registry="N/A" timeout="20000"/>
+
+
 </beans>
