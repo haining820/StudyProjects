@@ -8,7 +8,7 @@
         <version>2.7.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.qunar</groupId>
+    <groupId>com.haining820</groupId>
     <artifactId>springboot-study</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot-study</name>
