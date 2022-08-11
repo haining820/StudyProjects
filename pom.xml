@@ -12,6 +12,7 @@
         <module>future-study</module>
         <module>JUC-study</module>
         <module>springboot-study</module>
+        <module>mybatisplus-study</module>
         <module>tset-transcation</module>
         <module>dubbo-study</module>
         <module>servlet-demo</module>

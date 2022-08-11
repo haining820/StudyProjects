@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>hello</servlet-name>
-        <servlet-class>com.haining820.servlet.HelloServlet</servlet-class>
+        <servlet-class>com.haining820.servlet.MyGetServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>hello</servlet-name>
@@ -15,7 +15,7 @@
 
     <servlet>
         <servlet-name>getname</servlet-name>
-        <servlet-class>com.haining820.servlet.GetServlet</servlet-class>
+        <servlet-class>com.haining820.servlet.MyGetServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>getname</servlet-name>

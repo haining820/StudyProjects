@@ -17,7 +17,7 @@ import java.io.IOException;
  * @ClassName GetServlet
  * @Description TODO
  */
-public class GetServlet extends HttpServlet {
+public class MyGetServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
