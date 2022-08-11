@@ -31,6 +31,8 @@
         <mybatis.version>3.3.0</mybatis.version>
 
         <dubbo.version>2.7.3</dubbo.version>
+        <servlet-api.version>2.5</servlet-api.version>
+
 
     </properties>
 
@@ -91,6 +93,12 @@
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo</artifactId>
                 <version>${dubbo.version}</version>
+            </dependency>
+            <!--servlet-->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
