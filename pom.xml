@@ -16,6 +16,7 @@
         <module>tset-transcation</module>
         <module>dubbo-study</module>
         <module>servlet-demo</module>
+        <module>springmvc-study</module>
     </modules>
 
     <properties>

@@ -8,7 +8,8 @@ package com.qunar.day20;
  */
 
 import com.google.common.util.concurrent.Uninterruptibles;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +31,7 @@ public class ComFuture {
 
     private static ExecutorService EXECUTOR = Executors.newFixedThreadPool(5);
 
-    private static Logger LOGGER = Logger.getLogger(ComFuture.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(ComFuture.class);
 
     @Autowired
     ITimeHelper timeHelper;
