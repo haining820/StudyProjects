@@ -34,7 +34,7 @@
 
         <dubbo.version>2.7.3</dubbo.version>
         <servlet-api.version>2.5</servlet-api.version>
-
+        <joda-time.version>2.10.10</joda-time.version>
 
     </properties>
 
@@ -101,6 +101,11 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
                 <version>${servlet-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

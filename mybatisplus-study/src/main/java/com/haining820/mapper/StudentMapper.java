@@ -8,7 +8,7 @@ package com.haining820.mapper;
  */
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.haining820.entity.Employee;
+import com.haining820.entity.Student;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,6 +16,6 @@ import org.springframework.stereotype.Repository;
  * @Description TODO
  */
 @Repository
-public interface EmployeeMapper extends BaseMapper<Employee> {
+public interface StudentMapper extends BaseMapper<Student> {
 
 }
