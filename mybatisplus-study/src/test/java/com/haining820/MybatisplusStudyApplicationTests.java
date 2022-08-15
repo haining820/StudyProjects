@@ -76,7 +76,6 @@ class MybatisplusStudyApplicationTests {
     }
 
     @Test
-//    @Transactional
     public void testOptimisticUnderMultiThread2() {
 
         new Thread(() -> {
