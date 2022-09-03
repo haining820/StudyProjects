@@ -1,4 +1,4 @@
-package com.qunar.p1.lock8;
+package com.qunar.lock8;
 
 import java.util.concurrent.TimeUnit;
 
