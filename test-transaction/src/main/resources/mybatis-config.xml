@@ -7,7 +7,7 @@
 
     <!--设置别名，在使用类时只需使用类名小写即可-->
     <typeAliases>
-        <package name="com.qunar.pojo"/>
+        <package name="com.haining820.pojo"/>
     </typeAliases>
 
     <mappers>

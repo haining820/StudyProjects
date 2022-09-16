@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--绑定TeacherMapper接口-->
-<mapper namespace="com.qunar.mapper.TeacherMapper">
+<mapper namespace="com.haining820.mapper.TeacherMapper">
 
 
     <select id="selectTeacher" resultType="teacher">

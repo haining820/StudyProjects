@@ -11,7 +11,7 @@
         https://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.qunar"/>
+    <context:component-scan base-package="com.haining820"/>
 
 
     <!--配置spring数据源-->
@@ -32,7 +32,7 @@
     <!-- 获取mapper代理对象，为了可以获取到mapper -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-        <property name="basePackage" value="com.qunar.mapper"></property>
+        <property name="basePackage" value="com.haining820.mapper"></property>
     </bean>
 
     <!--配置事务管理器 -->
@@ -63,7 +63,7 @@
     <!--配置事务切入-->
     <aop:config>
         <!--执行位置：实现TeacherService的所有接口-->
-        <aop:pointcut id="txPointCut" expression="this(com.qunar.service.TeacherService)"/>
+        <aop:pointcut id="txPointCut" expression="this(com.haining820.service.TeacherService)"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
     </aop:config>
 
