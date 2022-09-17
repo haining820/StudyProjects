@@ -6,32 +6,38 @@ import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.haining820.CallableTask;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.Executors;
 
 
-public class ListenableFutureTest {
+/**
+ * 使用addCallback为任务绑定回调接口
+ */
 
-    public static void main(String[] args) {
-        testListenFuture();
-    }
+@Slf4j
+public class AddCallBackTest {
 
-    public static void testListenFuture() {
-        System.out.println("主任务执行完,开始异步执行副任务1.....");
+    public static void addCB() {
+        log.info("主任务执行完,开始异步执行副任务1.....");
         ListeningExecutorService pool = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(5));
         ListenableFuture<String> future = pool.submit(new CallableTask());
         // 为任务绑定回调接口
         Futures.addCallback(future, new FutureCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                System.out.println("success,result->:" + result);
+                log.info("success,result->:" + result);
             }
 
             @Override
             public void onFailure(Throwable t) {
-                System.out.println("error->" + t);
+                log.info("error->" + t);
             }
         });
-        System.out.println("副本任务启动,回归主任务线,主业务正常返回.....");
+        log.info("副本任务启动,回归主任务线,主业务正常返回.....");
+    }
+
+    public static void main(String[] args) {
+        addCB();
     }
 }

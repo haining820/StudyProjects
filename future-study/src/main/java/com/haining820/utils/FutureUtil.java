@@ -1,15 +1,12 @@
-package com.haining820.p1.day22;
+package com.haining820.utils;
 
 
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
 
 /**
  * Created with IntelliJ IDEA
@@ -18,11 +15,12 @@ import java.util.concurrent.ThreadFactory;
  * Date: 2022-07-22
  * Time: 10:09
  */
+
 public class FutureUtil {
 
     public static <T> CompletableFuture<T> convert(ListenableFuture<T> lf) {
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        return convert(lf, Executors.newSingleThreadExecutor(new ThreadFactory() {
+        // CompletableFuture中的线程默认是守护线程，这里也可以选择设为守护线程
+/*        return convert(lf, Executors.newSingleThreadExecutor(new ThreadFactory() {
             @Override
             public Thread newThread(Runnable r) {
                 Thread t = new Thread(r);
@@ -30,9 +28,11 @@ public class FutureUtil {
                 t.setName("CompletableFuture");
                 return t;
             }
-        }));
+        }));*/
+        return convert(lf, Executors.newSingleThreadExecutor());
     }
 
+    // 重载
     public static <T> CompletableFuture<T> convert(ListenableFuture<T> lf, Executor executor) {
         if (lf == null) {
             return null;
@@ -42,18 +42,13 @@ public class FutureUtil {
             T value = null;
             try {
                 value = lf.get();
-                System.out.println("666");
-                System.out.println(Thread.currentThread().isDaemon());
-                System.out.println("1->"+Thread.currentThread().getName());
                 cf.complete(value);
             } catch (InterruptedException | ExecutionException e) {
                 cf.completeExceptionally(e);
             }
         }, executor);
-        System.out.println("2->"+Thread.currentThread().getName());
         return cf;
     }
-
 
     public static <T> ListenableFuture<T> convert(CompletableFuture<T> cf) {
         if (cf == null) {
@@ -69,5 +64,4 @@ public class FutureUtil {
         });
         return lf;
     }
-
 }

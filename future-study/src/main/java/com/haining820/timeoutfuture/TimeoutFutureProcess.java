@@ -1,6 +1,7 @@
 package com.haining820.timeoutfuture;
 
 import com.google.common.util.concurrent.Uninterruptibles;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,17 +20,16 @@ import java.util.function.Function;
  * Date: 2022-07-20
  * Time: 11:00
  */
+@Slf4j
 @Component
-public class CompletableFutureTest {
+public class TimeoutFutureProcess {
 
     private static ExecutorService EXECUTOR = Executors.newFixedThreadPool(5);
-
-    private static org.apache.log4j.Logger LOGGER = Logger.getLogger(CompletableFutureTest.class);
 
     @Autowired
     ITimeHelper timeHelper;
 
-    public void testComFuture() throws ExecutionException, InterruptedException {
+    public void process() throws ExecutionException, InterruptedException {
         // 老师给的例子：线程存在存在超时问题，需要进行处理
         CompletableFuture<String> completableFuture = new CompletableFuture<>();
         EXECUTOR.execute(() -> {
@@ -42,7 +42,7 @@ public class CompletableFutureTest {
                 .applyToEither(timeHelper.fastFail(5, TimeUnit.SECONDS), Function.identity())
                 // 出现异常进行提示
                 .exceptionally(e -> "time out error!");
-        LOGGER.info(future.get());
+        log.info(future.get());
     }
 
 }

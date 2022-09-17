@@ -8,21 +8,20 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class testComFuture {
+public class TimeoutFutureTest {
 
 
     @Test
     public void testComFuture1() throws ExecutionException, InterruptedException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        CompletableFutureTest comFuture = (CompletableFutureTest) context.getBean("comFuture");
-        comFuture.testComFuture();
+        TimeoutFutureProcess comFuture = (TimeoutFutureProcess) context.getBean("comFuture");
+        comFuture.process();
     }
 
     @Test
     public void testGet() throws ExecutionException, InterruptedException, TimeoutException {
         CompletableFuture<Integer> future = new CompletableFuture<>();
         Integer integer = future.get(1, TimeUnit.SECONDS);
-
 
         System.out.println(integer);
     }

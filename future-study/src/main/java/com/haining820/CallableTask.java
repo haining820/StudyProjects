@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created with IntelliJ IDEA
- * Description:
+ * Description: 实现Callable接口，输出当前线程名称
  * User: hn.yu
  * Date: 2022-07-22
  * Time: 11:20
