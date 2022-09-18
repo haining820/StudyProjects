@@ -8,11 +8,9 @@ package com.haining820.service.impl;
  */
 
 import com.haining820.service.AsyncContextAsyncService;
-import com.haining820.utils.MyTools;
+import com.haining820.futureconvert.MyTools;
 import org.apache.dubbo.rpc.AsyncContext;
 import org.apache.dubbo.rpc.RpcContext;
-
-import java.util.concurrent.CompletableFuture;
 
 /**
  * @ClassName AsyncContextAsyncServiceImpl

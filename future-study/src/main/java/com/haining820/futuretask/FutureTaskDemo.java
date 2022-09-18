@@ -1,6 +1,6 @@
 package com.haining820.futuretask;
 
-import com.haining820.CallableTask;
+import com.haining820.utils.CallableTask;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ExecutionException;

@@ -10,7 +10,7 @@ package com.haining820.service.impl;
 import com.haining820.mapper.StudentMapper;
 import com.haining820.service.StudentService;
 import com.haining820.service.TransactionalTestService;
-import com.haining820.utils.GetCurTime;
+import com.haining820.futureconvert.GetCurTime;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

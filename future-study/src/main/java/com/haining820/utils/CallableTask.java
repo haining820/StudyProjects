@@ -1,4 +1,4 @@
-package com.haining820;
+package com.haining820.utils;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;

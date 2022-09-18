@@ -1,4 +1,4 @@
-package com.haining820.utils;
+package com.haining820.futureconvert;
 /**
  * Created with IntelliJ IDEA
  * Description:
@@ -8,9 +8,6 @@ package com.haining820.utils;
  */
 
 import org.joda.time.DateTime;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * @ClassName Utils

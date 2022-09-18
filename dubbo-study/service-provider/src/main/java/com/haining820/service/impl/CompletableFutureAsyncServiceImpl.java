@@ -8,7 +8,7 @@ package com.haining820.service.impl;
  */
 
 import com.haining820.service.CompletableFutureAsyncService;
-import com.haining820.utils.MyTools;
+import com.haining820.futureconvert.MyTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

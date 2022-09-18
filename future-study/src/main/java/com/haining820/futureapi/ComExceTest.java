@@ -10,12 +10,6 @@ package com.haining820.futureapi;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-/**
- * @ClassName ComExceTest
- * @Description TODO
- * @User hn.yu
- * @Date 2022-07-22 15:25
- */
 public class ComExceTest {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {

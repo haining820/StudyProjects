@@ -1,5 +1,7 @@
 package com.haining820.futureapi;
 
+import com.haining820.utils.SmallTool;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
