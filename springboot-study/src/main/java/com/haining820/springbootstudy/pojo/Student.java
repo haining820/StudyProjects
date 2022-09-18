@@ -1,21 +1,7 @@
 package com.haining820.springbootstudy.pojo;
-/**
- * Created with IntelliJ IDEA
- * Description:
- * User: hn.yu
- * Date: 2022-07-29
- * Time: 10:22
- */
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
-/**
- * @ClassName Student
- * @Description TODO
- * @User hn.yu
- * @Date 2022-07-29 10:22
- */
 
 @Component("student888")
 public class Student {

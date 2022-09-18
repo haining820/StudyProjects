@@ -12,10 +12,7 @@ import com.haining820.futureconvert.MyTools;
 import org.apache.dubbo.rpc.AsyncContext;
 import org.apache.dubbo.rpc.RpcContext;
 
-/**
- * @ClassName AsyncContextAsyncServiceImpl
- * @Description: TODO
- */
+
 public class AsyncContextAsyncServiceImpl implements AsyncContextAsyncService {
 
     @Override

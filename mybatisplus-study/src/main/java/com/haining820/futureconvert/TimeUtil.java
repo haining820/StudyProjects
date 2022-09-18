@@ -9,10 +9,7 @@ package com.haining820.futureconvert;
 
 import org.joda.time.DateTime;
 
-/**
- * @ClassName Utils
- * @Description: TODO
- */
+
 public class TimeUtil {
 
     private static final String PATTERN_STANDARD = "yyyy-MM-dd HH:mm:ss";

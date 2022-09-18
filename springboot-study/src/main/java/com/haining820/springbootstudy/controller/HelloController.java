@@ -1,16 +1,8 @@
 package com.haining820.springbootstudy.controller;
-/**
- * Created with IntelliJ IDEA
- * Description:
- * User: hn.yu
- * Date: 2022-07-29
- * Time: 10:13
- */
 
 import com.haining820.springbootstudy.mapper.StudentMapper;
 import com.haining820.springbootstudy.pojo.Student;
-import org.apache.log4j.Logger;
-import org.junit.Test;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -21,16 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @ClassName HelloController
- * @Description TODO
- * @User hn.yu
- * @Date 2022-07-29 10:13
+ * Created with IntelliJ IDEA
+ * Description:
+ * User: hn.yu
+ * Date: 2022-07-29
+ * Time: 10:13
  */
+@Slf4j
 @RestController
 public class HelloController {
-
-    private static Logger LOGGER = Logger.getLogger(HelloController.class);
-
 
     @RequestMapping("/hello")
     public String hello() {
@@ -71,7 +62,6 @@ public class HelloController {
         });
     }
 
-    @Test
     public void tsetTeans() {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         HelloController controller = context.getBean("helloController", HelloController.class);

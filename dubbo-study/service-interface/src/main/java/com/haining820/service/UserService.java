@@ -9,10 +9,7 @@ package com.haining820.service;
 
 import com.haining820.pojo.User;
 
-/**
- * @ClassName UserService
- * @Description: TODO
- */
+
 public interface UserService {
 
     /**

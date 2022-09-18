@@ -10,10 +10,7 @@ package com.haining820.futureconvert;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * @ClassName GetCurTime
- * @Description TODO
- */
+
 public class GetCurTime {
 
     public static String get() {

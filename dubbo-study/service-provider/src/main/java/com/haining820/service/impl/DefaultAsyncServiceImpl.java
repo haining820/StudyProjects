@@ -11,10 +11,7 @@ import com.haining820.service.DefaultAsyncService;
 
 import java.util.concurrent.CompletableFuture;
 
-/**
- * @ClassName DefaultAsyncServiceImpl
- * @Description TODO
- */
+
 public class DefaultAsyncServiceImpl implements DefaultAsyncService {
 
 

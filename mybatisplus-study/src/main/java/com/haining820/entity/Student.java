@@ -14,10 +14,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.Version;
 import java.util.Date;
 
-/**
- * @ClassName Employee
- * @Description TODO
- */
+
 public class Student {
 
     @TableId(type = IdType.AUTO)

@@ -21,7 +21,7 @@ import java.util.Date;
 /**
  * @ClassName MyHandler
  */
-@Slf4j    // TODO 这个注解怎么用？导入lombok？
+@Slf4j    // TODO 总结lombok的使用
 @Component  // 把处理器加到ioc容器中
 public class MyHandler implements MetaObjectHandler {
 

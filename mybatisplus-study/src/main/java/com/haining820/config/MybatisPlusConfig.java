@@ -15,10 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/**
- * @ClassName MybatisConfig
- * @Description: TODO
- */
+
 
 @Configuration  // 配置类
 @EnableTransactionManagement    // 开启事务

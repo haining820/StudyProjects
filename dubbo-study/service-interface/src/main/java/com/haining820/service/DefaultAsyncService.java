@@ -9,10 +9,7 @@ package com.haining820.service;
 
 import java.util.concurrent.CompletableFuture;
 
-/**
- * @ClassName DefaultAsyncService
- * @Description TODO
- */
+
 public interface DefaultAsyncService {
 
     /**

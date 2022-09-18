@@ -14,10 +14,7 @@ import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 
-/**
- * @ClassName UserController
- * @Description: TODO
- */
+
 @Controller
 public class UserController {
 

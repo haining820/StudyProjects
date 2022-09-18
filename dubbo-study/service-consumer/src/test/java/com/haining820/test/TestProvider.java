@@ -16,10 +16,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 
-/**
- * @ClassName TestProvider
- * @Description: TODO
- */
+
 public class TestProvider {
 
     private static Logger LOGGER = LoggerFactory.getLogger(TestProvider.class);

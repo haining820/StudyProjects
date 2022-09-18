@@ -17,10 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-/**
- * @ClassName TransactionalTestServiceImpl
- * @Description TODO
- */
+
 @Service
 public class TransactionalTestServiceImpl implements TransactionalTestService {
 

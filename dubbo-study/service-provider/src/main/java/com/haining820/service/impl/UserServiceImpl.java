@@ -13,10 +13,7 @@ import com.haining820.futureconvert.MyTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @ClassName UserServiceImpl
- * @Description: TODO
- */
+
 public class UserServiceImpl implements UserService {
 
     private static Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);

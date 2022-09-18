@@ -11,10 +11,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.haining820.entity.Student;
 import org.springframework.stereotype.Repository;
 
-/**
- * @ClassName EmployeeMapper
- * @Description TODO
- */
+
 @Repository
 public interface StudentMapper extends BaseMapper<Student> {
 

@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @ClassName GetServlet
- * @Description TODO
- */
+
 public class MyGetServlet extends HttpServlet {
 
     @Override

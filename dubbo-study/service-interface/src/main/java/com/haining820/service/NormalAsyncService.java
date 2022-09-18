@@ -7,10 +7,7 @@ package com.haining820.service;
  * Time: 10:56
  */
 
-/**
- * @ClassName NormalAsyncService
- * @Description TODO
- */
+
 public interface NormalAsyncService {
     String sayHelloAsync(String name);
 }

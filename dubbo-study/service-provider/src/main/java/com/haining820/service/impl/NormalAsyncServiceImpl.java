@@ -9,10 +9,7 @@ package com.haining820.service.impl;
 
 import com.haining820.service.NormalAsyncService;
 
-/**
- * @ClassName NormalAsyncServiceImpl
- * @Description TODO
- */
+
 public class NormalAsyncServiceImpl implements NormalAsyncService {
 
     @Override

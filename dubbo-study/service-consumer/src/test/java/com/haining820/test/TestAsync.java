@@ -30,10 +30,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-/**
- * @ClassName TestAsync
- * @Description TODO
- */
+
 public class TestAsync {
 
     private static Logger LOGGER = LoggerFactory.getLogger(TestAsync.class);

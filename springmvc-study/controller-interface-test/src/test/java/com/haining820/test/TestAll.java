@@ -17,10 +17,7 @@ import org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
 
-/**
- * @ClassName TestALl
- * @Description TODO
- */
+
 public class TestAll {
 
     @ResponseBody

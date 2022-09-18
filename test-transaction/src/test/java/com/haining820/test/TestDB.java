@@ -15,10 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * @ClassName TestDB
- * @Description TODO
- */
+
 public class TestDB {
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
