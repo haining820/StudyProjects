@@ -11,13 +11,13 @@ import java.util.concurrent.CompletableFuture;
  * Time: 10:27
  */
 
-public class ThenCombineTest {
+public class _03_thenCombine {
 
-    public static void main(String[] args) {
+    public void thenCombineTest() {
         SmallTool.printTimeAndThread("小白进入餐厅");
         SmallTool.printTimeAndThread("小白点了 番茄炒蛋 + 一碗米饭");
 
-        CompletableFuture<String> cf1 = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture<String> cf = CompletableFuture.supplyAsync(() -> {
             SmallTool.printTimeAndThread("厨师炒菜");
             SmallTool.sleepMillis(200);
             return "番茄炒蛋";
@@ -32,6 +32,6 @@ public class ThenCombineTest {
         });
 
         SmallTool.printTimeAndThread("小白在打王者");
-        SmallTool.printTimeAndThread(String.format("%s ,小白开吃", cf1.join()));
+        SmallTool.printTimeAndThread(String.format("%s ,小白开吃", cf.join()));
     }
 }
