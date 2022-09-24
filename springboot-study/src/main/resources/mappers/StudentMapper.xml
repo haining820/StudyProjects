@@ -2,20 +2,22 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--configuration核心配置文件-->
-<mapper namespace="com.haining820.springbootstudy.mapper.StudentMapper">
+<mapper namespace="com.haining820.springbootstudy.dao.StudentDao">
 
 
-    <select id="selectStudent" resultType="com.haining820.springbootstudy.pojo.Student">
-        select * from springboot_student.student;
+    <select id="selectStudent" resultType="com.haining820.springbootstudy.entity.Student">
+        select *
+        from springboot_study.student;
     </select>
 
-    <insert id="addStudent" parameterType="com.haining820.springbootstudy.pojo.Student">
-        insert into springboot_student.student(name,age) values (#{name},#{age});
+    <insert id="addStudent" parameterType="com.haining820.springbootstudy.entity.Student">
+        insert into springboot_study.student(name, age)
+        values (#{name}, #{age});
     </insert>
 
     <delete id="deleteStudent">
-        delete from springboot_student.student whee id = #{id};
+        delete
+        from springboot_study.student whee id = #{id};
     </delete>
 
 

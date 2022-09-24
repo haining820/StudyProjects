@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    username: root
+    password: Qwer1234!
+    url: jdbc:mysql://120.48.11.138:8200/springboot_study?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver: com.mysql.cj.jdbc.Driver
+
+
+mybatis:
+  mapper-locations: classpath:mappers/*Mapper.xml
+  type-aliases-package: com.haining820.springbootstudy.entity
+
+server:
+  port: 9100
