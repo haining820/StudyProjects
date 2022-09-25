@@ -1,14 +1,10 @@
 package com.haining820.springbootstudy.entity;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component("student888")
 public class Student {
-    @Value("yuhaiyang")
     private String name;
 
-    @Value("18")
     private int age;
 
 
