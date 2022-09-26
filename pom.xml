@@ -28,6 +28,7 @@
         <module>springmvc-study</module>
         <module>test-transaction</module>
         <module>http-client</module>
+        <module>java-basic</module>
     </modules>
 
     <properties>
