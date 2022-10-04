@@ -1,4 +1,4 @@
-package com.haining820.supcon;
+package com.haining820.functional;
 
 import java.util.function.Consumer;
 
@@ -10,18 +10,6 @@ import java.util.function.Consumer;
  * Time: 17:56
  */
 
-/**
- * Consumer接口的默认方法andThen
- * 作用：需要两个Consumer接口，可以把两个Consumer接口组合到一起，在对数据进行消费
- * 例如:
- *   Consumer<String> con1
- *   Consumer<String> con2
- *   String s = "hello";
- *   con1.accept(s);
- *   con2.accept(s);
- *   连接两个Consumer接口 再进行消费
- *   con1.andThen(con2).accept(s);谁写前边谁先消费
- */
 /**
  * 如果一个方法的参数和返回值全都是Consumer类型，
  * 那么就可以实现效果：消费数据的时候，首先做一个操作，然后再做一个操作，实现组合。

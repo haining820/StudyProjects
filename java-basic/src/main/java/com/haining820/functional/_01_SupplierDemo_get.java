@@ -1,4 +1,4 @@
-package com.haining820.supcon;
+package com.haining820.functional;
 
 import java.util.function.Supplier;
 
