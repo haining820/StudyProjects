@@ -7,7 +7,7 @@
 <mapper namespace="com.haining820.mapper.StudentMapper">
 
 
-    <select id="selectStudent" resultType="student">
+    <select id="selectStudent" resultType="com.haining820.pojo.Student">
         select * from tran.student;
     </select>
 
@@ -24,6 +24,10 @@
         set name=#{name}
         where id=#{id};
     </update>
+
+    <select id="testSelect" resultType="java.lang.Integer">
+        select id from student where name=#{name};
+    </select>
 
 
 </mapper>

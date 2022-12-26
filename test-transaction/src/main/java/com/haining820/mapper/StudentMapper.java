@@ -26,4 +26,6 @@ public interface StudentMapper {
 
     int updateStudent(@Param("id")int id, @Param("name") String name);
 
+    Integer testSelect(@Param("name") String name);
+
 }

@@ -35,9 +35,13 @@ public class ArrayToJsonDemo {
 //        list.forEach(map::putAll);
 
 
+
+
+
         HashMap<String, Object> map2 = Maps.newHashMap();
-        map2.put("key_map2",list);
-        map2.put("key2_map2","v2");
+        map2.put("key_map2",1);
+        map2.put("key2_map2",2);
+
 
         ObjectMapper mapper = new ObjectMapper();
         String result = mapper.writeValueAsString(map2);

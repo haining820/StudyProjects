@@ -7,11 +7,13 @@ package com.haining820.test;
  * Time: 17:45
  */
 
+import com.haining820.mapper.StudentMapper;
 import com.haining820.service.StudentService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,6 +29,18 @@ public class TestDB {
     public void testUpdate(){
         String name = "testUpdate->" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         studentService.myUpdateStudent(name);
+    }
+
+//    @Resource
+//    StudentMapper studentMapper;
+
+    StudentMapper studentMapper = (StudentMapper) applicationContext.getBean("studentMapper");
+
+
+    @Test
+    public void testUpdate2(){
+        System.out.println(studentMapper.testSelect("xiomy87imi"));
+
     }
 
 }
