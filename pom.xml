@@ -28,7 +28,7 @@
         <module>springmvc-study</module>
         <module>test-transaction</module>
         <module>http-client</module>
-        <module>java-basic</module>
+        <module>Java-basic</module>
         <module>guava-study</module>
     </modules>
 
