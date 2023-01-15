@@ -1,6 +1,7 @@
 package com.haining820.futureapi;
 
 import com.haining820.utils.SmallTool;
+import org.junit.Test;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
@@ -25,13 +26,14 @@ public class _02_thenCompose {
             0, TimeUnit.MILLISECONDS,
             new SynchronousQueue<>());
 
+    @Test
     public void thenComposeTest() {
         SmallTool.printTimeAndThread("小白进入餐厅");
         SmallTool.printTimeAndThread("小白点了 番茄炒蛋 + 一碗米饭");
 
         CompletableFuture<String> cf = CompletableFuture.supplyAsync(() -> {
             SmallTool.printTimeAndThread("厨师炒菜");
-            SmallTool.sleepMillis(200);
+            SmallTool.sleepMillis(2000);
             return "番茄炒蛋";
         }).thenCompose(dish -> CompletableFuture.supplyAsync(() -> {
             SmallTool.printTimeAndThread("服务员打饭");
@@ -49,7 +51,6 @@ public class _02_thenCompose {
             return "番茄炒蛋";
         }).thenComposeAsync(dish -> {
             SmallTool.printTimeAndThread("服务员A 准备打饭，但是被领导叫走，打饭交接给服务员B");
-
             return CompletableFuture.supplyAsync(() -> {
                 SmallTool.printTimeAndThread("服务员B 打饭");
                 SmallTool.sleepMillis(100);

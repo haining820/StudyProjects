@@ -1,6 +1,7 @@
 package com.haining820.futureapi;
 
 import com.haining820.utils.SmallTool;
+import org.junit.Test;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -17,6 +18,7 @@ public class _01_supplyAsync {
     /**
      * supplyAsync 用于有返回值的任务
      */
+    @Test
     public void supplyAsyncTest(){
         SmallTool.printTimeAndThread("小白进入餐厅");
         SmallTool.printTimeAndThread("小白点了 番茄炒蛋 + 一碗米饭");
@@ -32,6 +34,7 @@ public class _01_supplyAsync {
         SmallTool.printTimeAndThread(String.format("%s ,小白开吃", cf.join()));
     }
 
+    @Test
     public void runAsyncTest(){
         SmallTool.printTimeAndThread("小白进入餐厅");
         SmallTool.printTimeAndThread("小白点了 番茄炒蛋 + 一碗米饭");

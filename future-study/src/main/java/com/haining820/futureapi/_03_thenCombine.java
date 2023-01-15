@@ -1,6 +1,7 @@
 package com.haining820.futureapi;
 
 import com.haining820.utils.SmallTool;
+import org.junit.Test;
 
 import java.util.concurrent.CompletableFuture;
 /**
@@ -13,6 +14,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class _03_thenCombine {
 
+    @Test
     public void thenCombineTest() {
         SmallTool.printTimeAndThread("小白进入餐厅");
         SmallTool.printTimeAndThread("小白点了 番茄炒蛋 + 一碗米饭");

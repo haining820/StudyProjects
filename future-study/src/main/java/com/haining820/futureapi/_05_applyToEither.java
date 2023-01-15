@@ -1,6 +1,7 @@
 package com.haining820.futureapi;
 
 import com.haining820.utils.SmallTool;
+import org.junit.Test;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -13,6 +14,7 @@ import java.util.concurrent.CompletableFuture;
  */
 public class _05_applyToEither {
 
+    @Test
     public void applyToEitherTest() {
         SmallTool.printTimeAndThread("张三走出餐厅，来到公交站");
         SmallTool.printTimeAndThread("等待 700路 或者 800路 公交到来");
