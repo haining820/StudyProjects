@@ -35,7 +35,7 @@ public class _02_thenCompose {
             SmallTool.printTimeAndThread("厨师炒菜");
             SmallTool.sleepMillis(2000);
             return "番茄炒蛋";
-        }).thenCompose(dish -> CompletableFuture.supplyAsync(() -> {
+        }).thenComposeAsync(dish -> CompletableFuture.supplyAsync(() -> {
             SmallTool.printTimeAndThread("服务员打饭");
             SmallTool.sleepMillis(100);
             return dish + " + 米饭";
@@ -44,6 +44,7 @@ public class _02_thenCompose {
         SmallTool.printTimeAndThread(String.format("%s 好了,小白开吃", cf.join()));
     }
 
+    @Test
     public void thenComposeAsyncTest() {
         CompletableFuture<String> cf = CompletableFuture.supplyAsync(() -> {
             SmallTool.printTimeAndThread("厨师炒菜");
