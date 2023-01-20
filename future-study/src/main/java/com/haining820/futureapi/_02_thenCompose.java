@@ -50,7 +50,7 @@ public class _02_thenCompose {
             SmallTool.printTimeAndThread("厨师炒菜");
             SmallTool.sleepMillis(200);
             return "番茄炒蛋";
-        }).thenComposeAsync(dish -> {
+        }).thenCompose(dish -> {
             SmallTool.printTimeAndThread("服务员A 准备打饭，但是被领导叫走，打饭交接给服务员B");
             return CompletableFuture.supplyAsync(() -> {
                 SmallTool.printTimeAndThread("服务员B 打饭");
