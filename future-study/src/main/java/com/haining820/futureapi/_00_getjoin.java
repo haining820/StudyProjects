@@ -43,22 +43,22 @@ public class _00_getjoin {
     public void getNowTest() {
         CompletableFuture<Integer> cf1 = new CompletableFuture<>();
         // cf没有结果，打印 666
-        log.info("cf getNow res#={}", cf1.getNow(666));
+        log.info("cf getNow#res={}", cf1.getNow(666));
         CompletableFuture<Integer> cf2 = new CompletableFuture<>();
         cf2.complete(777);
         // cf有结果，直接输出结果，打印 777
-        log.info("cf get res#={}", cf2.getNow(666));
+        log.info("cf get#res={}", cf2.getNow(666));
     }
 
     @Test
     public void getNowTest2() {
         CompletableFuture<Integer> getNowCf = CompletableFuture.supplyAsync(() -> sleepMillis(1000));
         // sleepMillis操作需要等待，没有结果立即返回，打印 666
-        log.info("cf getNow res#={}", getNowCf.getNow(666));
+        log.info("cf getNow#res={}", getNowCf.getNow(666));
         CompletableFuture<Integer> getCf = CompletableFuture.supplyAsync(() -> sleepMillis(1000));
         try {
             // 等待sleepMillis结果完成，打印 1
-            log.info("cf get res#={}", getCf.get());
+            log.info("cf get#res={}", getCf.get());
         } catch (Exception e) {
             e.printStackTrace();
         }
