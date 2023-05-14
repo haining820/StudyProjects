@@ -14,6 +14,9 @@ import java.util.List;
  */
 public class ParallelStreamDemo {
 
+    /**
+     * https://www.cnblogs.com/sueyyyy/p/13079525.html
+     */
     @Test
     public void testStream() {
         List<Integer> originList = Lists.newArrayList();
@@ -22,15 +25,15 @@ public class ParallelStreamDemo {
             originList.add(i);
         }
         System.out.println("originList.size: " + originList.size());
-        List<Integer> streamList = Lists.newArrayList();
-        List<Integer> parallelStreamList = Lists.newArrayList();
-        List<Integer> foreachStreamList = Lists.newArrayList();
-        originList.stream().forEach(streamList::add);
-        originList.parallelStream().forEach(parallelStreamList::add);
-        originList.forEach(foreachStreamList::add);
-        System.out.println("streamList.size: " + streamList.size());
-        System.out.println("parallelStreamList.size: " + parallelStreamList.size());
-        System.out.println("foreachStreamList.size: " + foreachStreamList.size());
+        List<Integer> list1 = Lists.newArrayList();
+        List<Integer> list2 = Lists.newArrayList();
+        List<Integer> list3 = Lists.newArrayList();
+        originList.stream().forEach(list1::add);
+        originList.parallelStream().forEach(list2::add);
+        originList.forEach(list3::add);
+        System.out.println("streamList.size: " + list1.size());
+        System.out.println("parallelStreamList.size: " + list2.size());
+        System.out.println("foreachStreamList.size: " + list3.size());
     }
 
 }
