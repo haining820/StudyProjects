@@ -22,6 +22,7 @@ public class ForeachMapTest {
 
         HashMap<String, String> map2 = Maps.newHashMap();
 //        map.forEach(map::putAll);
+        System.out.println("commit test");
     }
 
     public void test2() {
