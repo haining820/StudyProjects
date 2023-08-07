@@ -9,7 +9,7 @@ package com.haining820.basic;
  */
 public class StringDemo {
     /**
-     * 一个Integer对象转换为String。怎么转换？
+     * 一个Integer对象转换为String。怎么转换？.
      */
     public static void main(String[] args) {
         /**
