@@ -31,4 +31,9 @@ public class StringDemo {
         String str4 = str3 + "word!";
         System.out.println(str2 == str4);   // 在堆中新建了其他对象，false
     }
+
+    public static void main2(String[] args) {
+        String a = "  46784674  ";
+        System.out.println(a.trim());
+    }
 }
